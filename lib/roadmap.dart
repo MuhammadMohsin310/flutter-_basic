@@ -1,0 +1,70 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:learn_flutter_basic/main.dart';
+
+class FlutterRoadmap extends StatelessWidget {
+  const FlutterRoadmap({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: Colors.black,
+        appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            color: Colors.black,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return MyApp();
+                  },
+                ),
+              );
+            },
+          ),
+          backgroundColor: Color.fromARGB(255, 241, 232, 232),
+          title: Center(
+            child: Text(
+              "Flutter Road Map",
+              style:
+                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+            ),
+          ),
+        ),
+        body: RoadMap(),
+      ),
+    );
+  }
+}
+
+class RoadMap extends StatelessWidget {
+  const RoadMap({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return PageView(
+      children: [
+        Image(
+          height: MediaQuery.of(context).size.height * 0.9,
+          image: AssetImage("assets/images/roadmap1.jpeg"),
+        ),
+        Image(
+          height: MediaQuery.of(context).size.height * 0.9,
+          image: AssetImage("assets/images/roadmap2.jpeg"),
+        ),
+        Image(
+          height: MediaQuery.of(context).size.height * 0.9,
+          image: AssetImage("assets/images/roadmap3.jpeg"),
+        ),
+        Image(
+          height: MediaQuery.of(context).size.height * 0.9,
+          image: AssetImage("assets/images/roadmap4.jpeg"),
+        ),
+      ],
+    );
+  }
+}
